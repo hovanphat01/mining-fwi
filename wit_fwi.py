@@ -45,7 +45,7 @@ def WIT_FWI(database, min_support):
     return frequent_weighted_itemsets
 
 # Giá trị support tối thiểu
-min_support = 75
+min_support = 80
 
 # Gọi thuật toán WIT-FWI sử dụng cây WIT-tree và hiển thị kết quả
 results = WIT_FWI(database, min_support)

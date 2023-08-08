@@ -10,3 +10,4 @@ def read_data(filename):
         transactions.append(items)
     
     return transactions
+

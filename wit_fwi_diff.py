@@ -25,14 +25,14 @@ def insert_wit_tree(root, itemset):
         node.itemsets.append(itemset)
         node.weight += 1
 
-# Hàm thêm một tập hạng mục vào Diff-WIT-tree
-def insert_diff_wit_tree(root, itemset):
-    node = root
-    for item in itemset:
-        if item not in node.children:
-            node.children[item] = DiffWITNode()
-        node = node.children[item]
-        node.weight += 1
+    # Hàm thêm một tập hạng mục vào Diff-WIT-tree
+    def insert_diff_wit_tree(root, itemset):
+        node = root
+        for item in itemset:
+            if item not in node.children:
+                node.children[item] = DiffWITNode()
+            node = node.children[item]
+            node.weight += 1
 
 # Hàm khai thác các tập phổ biến từ WIT-tree
 def mine_frequent_itemsets_wit_tree(node, min_support, current_itemset, results):
