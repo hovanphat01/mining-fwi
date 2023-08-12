@@ -11,3 +11,12 @@ def read_data(filename):
     
     return transactions
 
+def transform_to_data(transactions):
+    database = []
+    for transaction in transactions:
+        itemset = {}
+        for item in transaction:
+            if item != '\r':
+                itemset[f'{item}'] = 1
+        database.append(itemset)
+    return database

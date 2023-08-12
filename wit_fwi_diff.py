@@ -1,7 +1,3 @@
-from read_data import read_data
-
-database = read_data('./data/chess.dat.txt')
-
 # Định nghĩa cấu trúc dữ liệu WIT-tree Node
 class WITNode:
     def __init__(self):
@@ -25,14 +21,14 @@ def insert_wit_tree(root, itemset):
         node.itemsets.append(itemset)
         node.weight += 1
 
-    # Hàm thêm một tập hạng mục vào Diff-WIT-tree
-    def insert_diff_wit_tree(root, itemset):
-        node = root
-        for item in itemset:
-            if item not in node.children:
-                node.children[item] = DiffWITNode()
-            node = node.children[item]
-            node.weight += 1
+# Hàm thêm một tập hạng mục vào Diff-WIT-tree
+def insert_diff_wit_tree(root, itemset):
+    node = root
+    for item in itemset:
+        if item not in node.children:
+            node.children[item] = DiffWITNode()
+        node = node.children[item]
+        node.weight += 1
 
 # Hàm khai thác các tập phổ biến từ WIT-tree
 def mine_frequent_itemsets_wit_tree(node, min_support, current_itemset, results):
@@ -79,6 +75,11 @@ def WIT_FWI_DIFF(database, min_support):
 
 # Giá trị support tối thiểu
 min_support = 75
+
+from read_data import read_data,transform_to_data
+
+data = read_data('./data/chess.dat.txt')
+database = transform_to_data(data)
 
 # Gọi thuật toán WIT-FWI-DIFF và hiển thị kết quả
 results = WIT_FWI_DIFF(database, min_support)

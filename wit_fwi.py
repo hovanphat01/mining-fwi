@@ -1,8 +1,3 @@
-from read_data import read_data
-
-database = read_data('./data/chess.dat.txt')
-
-
 # Định nghĩa cấu trúc dữ liệu WIT-tree Node
 class WITNode:
     def __init__(self):
@@ -46,6 +41,11 @@ def WIT_FWI(database, min_support):
 
 # Giá trị support tối thiểu
 min_support = 80
+
+from read_data import read_data, transform_to_data
+
+data = read_data('./data/chess.dat.txt')
+database = transform_to_data(data)
 
 # Gọi thuật toán WIT-FWI sử dụng cây WIT-tree và hiển thị kết quả
 results = WIT_FWI(database, min_support)
