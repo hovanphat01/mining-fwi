@@ -1,11 +1,11 @@
 from wit_fwi import WIT_FWI
 from wit_fwi_diff import WIT_FWI_DIFF
-from wis import generate_frequent_itemsets
+from wis import wis_algorithm
 from warm import generate_association_rules
 import timeit
 
-min_support = [1, 2, 3, 4, 5]
-min_confidence = 0.5
+min_support = [0.5, 1, 1.5, 2, 2.5, 3]
+min_confidence = 5
 database = [
     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
@@ -20,7 +20,7 @@ runtime_WARMs = []
 for i in min_support:
     runtime_WIT = timeit.timeit('WIT_FWI(database, i)', globals=globals(), number=1)
     runtime_WIT_DIFF = timeit.timeit('WIT_FWI_DIFF(database, i)', globals=globals(), number=1)
-    runtime_WIS = timeit.timeit('generate_frequent_itemsets(database, i)', globals= globals(), number=1)
+    runtime_WIS = timeit.timeit('wis_algorithm(database, i)', globals= globals(), number=1)
     runtime_WARM = timeit.timeit('generate_association_rules(database, i, min_confidence)', globals=globals(), number=1)
 
     runtime_WITs.append(runtime_WIT)
