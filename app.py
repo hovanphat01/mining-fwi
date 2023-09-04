@@ -25,10 +25,10 @@ runtime_WIT_DIFFs = []
 runtime_WISs = []
 runtime_WARMs = []
 for i in min_support:
-    runtime_WIT = timeit.timeit('WIT_FWI(database, i)', globals=globals(), number=1)
-    runtime_WIT_DIFF = timeit.timeit('WIT_FWI_DIFF(database, i)', globals=globals(), number=1)
-    runtime_WIS = timeit.timeit('wis_algorithm(database, i)', globals= globals(), number=1)
-    runtime_WARM = timeit.timeit('generate_association_rules(database, i, min_confidence)', globals=globals(), number=1)
+    runtime_WIT = timeit.timeit('WIT_FWI(test_data, i)', globals=globals(), number=1)
+    runtime_WIT_DIFF = timeit.timeit('WIT_FWI_DIFF(test_data, i)', globals=globals(), number=1)
+    runtime_WIS = timeit.timeit('wis_algorithm(test_data, i)', globals= globals(), number=1)
+    runtime_WARM = timeit.timeit('generate_association_rules(test_data, i, min_confidence)', globals=globals(), number=1)
 
     runtime_WITs.append(runtime_WIT)
     runtime_WIT_DIFFs.append(runtime_WIT_DIFF)
