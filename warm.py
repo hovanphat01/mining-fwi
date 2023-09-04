@@ -1,56 +1,3 @@
-# # Sample transaction data have weighted mark
-# # transaction_data = [
-# #     {'items': ['A', 'B'], 'weight': 2},
-# #     {'items': ['A'], 'weight': 1},
-# #     {'items': ['B', 'C'], 'weight': 3},
-# # ]
-
-# transaction_data = [
-#     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
-#     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
-#     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
-#     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
-# ]
-
-# # Step 1: Generate Frequent Itemsets
-# # min_support = 0.2
-# min_support = 1
-
-# frequent_itemsets = {}
-# for transaction in transaction_data:
-#     for item in transaction['items']:
-#         if item in frequent_itemsets:
-#             frequent_itemsets[item] += transaction['weight']
-#         else:
-#             frequent_itemsets[item] = transaction['weight']
-
-# frequent_itemsets = {item: support for item, support in frequent_itemsets.items() if support >= min_support}
-
-# # Step 2: Generate Association Rules
-# association_rules = []
-# for itemset in frequent_itemsets:
-#     for item in frequent_itemsets:
-#         if item != itemset:
-#             # Calculate confidence and lift
-#             confidence = frequent_itemsets[itemset] / frequent_itemsets[item]
-#             lift = frequent_itemsets[itemset] / (frequent_itemsets[item] * frequent_itemsets[itemset])
-
-#             # Add rule to association_rules list
-#             association_rules.append({
-#                 'itemset': itemset,
-#                 'item': item,
-#                 'confidence': confidence,
-#                 'lift': lift
-#             })
-
-# # Step 3: Filtering Rules
-# min_confidence = 0.5
-# filtered_rules = [rule for rule in association_rules if rule['confidence'] >= min_confidence]
-
-# # Print the filtered rules
-# for rule in filtered_rules:
-#     print(f"Rule: {rule['itemset']} => {rule['item']}, Confidence: {rule['confidence']}, Lift: {rule['lift']}")
-
 from itertools import combinations
 from collections import defaultdict
 
@@ -98,18 +45,24 @@ def generate_association_rules(transaction_data, min_support, min_confidence):
     filtered_rules = [rule for rule in association_rules if rule['confidence'] >= min_confidence]
     return filtered_rules
 
-# # Sample transaction data
-# transaction_data = [
-#     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
-#     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
-#     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
-#     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
-# ]
 
-# min_support = 0.5
-# min_confidence = 0.5
+# from read_data import read_data, transform_to_data
+# from sklearn.model_selection import train_test_split
+# data = read_data('./data/chess.dat.txt')
+# database = transform_to_data(data)
+# train_data, test_data = train_test_split(database, test_size=0.05)
+# # # Sample transaction data
+# # # transaction_data = [
+# # #     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
+# # #     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
+# # #     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
+# # #     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
+# # # ]
 
-# filtered_rules = generate_association_rules(transaction_data, min_support, min_confidence)
+# min_support = 155
+# min_confidence = 1
+
+# filtered_rules = generate_association_rules(test_data, min_support, min_confidence)
 
 # for rule in filtered_rules:
 #     itemset = ', '.join(rule['itemset'])

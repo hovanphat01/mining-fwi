@@ -71,17 +71,14 @@ def wis_algorithm(data, min_weight_threshold):
         candidate_itemsets = generate_candidate_itemsets(valid_candidates)
     
     return frequent_itemsets
+# from read_data import read_data, transform_to_data
+# from sklearn.model_selection import train_test_split
+# data = read_data('./data/chess.dat.txt')
+# database = transform_to_data(data)
+# train_data, test_data = train_test_split(database, test_size=0.05)
 
-# data = [
-#     {"Beer": 5, "Sausage": 1, "Egg": 1},
-#     {"Beer": 2, "Sausage": 1, "Egg": 1, "Beef": 1},
-#     {"Beer": 2, "Sausage": 1, "Egg": 1, "Durian": 4, "Yaourt": 4, "Beef": 1},
-#     {"Beer": 1, "Durian": 1, "Yaourt": 1},
-#     {"Durian": 1, "Yaourt": 1, "Beef": 1},
-# ]
-
-# min_weight_threshold = 50
-# frequent_itemsets = wis_algorithm(data, min_weight_threshold)
+# min_weight_threshold =150
+# frequent_itemsets = wis_algorithm(test_data, min_weight_threshold)
 
 # print("Frequent Weighted Itemsets:")
 # for itemset, total_weight in frequent_itemsets:

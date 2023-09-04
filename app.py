@@ -2,16 +2,23 @@ from wit_fwi import WIT_FWI
 from wit_fwi_diff import WIT_FWI_DIFF
 from wis import wis_algorithm
 from warm import generate_association_rules
+from read_data import read_data, transform_to_data
 import timeit
 
-min_support = [0.5, 1, 1.5, 2, 2.5, 3]
-min_confidence = 5
-database = [
-    {'Beer': 3, 'Sausage': 2, 'Egg': 1},
-    {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
-    {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
-    {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
-]
+# min_support = [0.5, 1, 1.5, 2, 2.5, 3]
+min_support = [150, 160, 170, 180, 190]
+min_confidence = 1
+# database = [
+#     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
+#     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
+#     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
+#     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
+# ]
+
+from sklearn.model_selection import train_test_split
+data = read_data('./data/chess.dat.txt')
+database = transform_to_data(data)
+train_data, test_data = train_test_split(database, test_size=0.2)
 
 runtime_WITs = []
 runtime_WIT_DIFFs = []

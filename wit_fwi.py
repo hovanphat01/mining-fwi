@@ -81,16 +81,21 @@ def WIT_FWI(database, min_support):
 
     return frequent_weighted_itemsets
 
-# # Giá trị support tối thiểu
-# min_support = 3
-# database = [
-#     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
-#     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
-#     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
-#     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
-# ]
+# from read_data import read_data, transform_to_data
+# from sklearn.model_selection import train_test_split
+# data = read_data('./data/chess.dat.txt')
+# database = transform_to_data(data)
+# train_data, test_data = train_test_split(database, test_size=0.2)
+# # # Giá trị support tối thiểu
+# min_support = 150
+# # database = [
+# #     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
+# #     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
+# #     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
+# #     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
+# # ]
 # # Gọi thuật toán WIT-FWI sử dụng cây WIT-tree và hiển thị kết quả
-# results = WIT_FWI(database, min_support)
+# results = WIT_FWI(test_data, min_support)
 # print("Frequent Weighted Itemsets:")
 # for itemset, weight in results:
 #     print(f"Itemset: {', '.join(itemset)} | Total Weight: {weight}")
