@@ -146,8 +146,8 @@ def WIT_FWI_DIFF(database, min_support):
 # from sklearn.model_selection import train_test_split
 # data = read_data('./data/chess.dat.txt')
 # database = transform_to_data(data)
-# train_data, test_data = train_test_split(database, test_size=0.2)
-# # # Giá trị support tối thiểu
+# train_data, test_data = train_test_split(database, test_size=0.01)
+# # # # Giá trị support tối thiểu
 # min_support = 150
 
 # database = [
@@ -157,7 +157,7 @@ def WIT_FWI_DIFF(database, min_support):
 #     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
 # ]
 
-# # Gọi thuật toán WIT-FWI-DIFF và hiển thị kết quả
+# Gọi thuật toán WIT-FWI-DIFF và hiển thị kết quả
 # results = WIT_FWI_DIFF(test_data, min_support)
 # print("Common Frequent Itemsets:")
 # for itemset, support in results:

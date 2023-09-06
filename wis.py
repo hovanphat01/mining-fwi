@@ -46,8 +46,6 @@ def wis_algorithm(data, min_weight_threshold):
     Return:
         list: Danh sách các tập mục thường xuyên cùng với tổng trọng số của chúng.
     """
-
-
     # Step 1: Xây dựng bảng hỗ trợ
     support_table = {}
     for transaction in data:
@@ -71,14 +69,22 @@ def wis_algorithm(data, min_weight_threshold):
         candidate_itemsets = generate_candidate_itemsets(valid_candidates)
     
     return frequent_itemsets
+
 # from read_data import read_data, transform_to_data
 # from sklearn.model_selection import train_test_split
 # data = read_data('./data/chess.dat.txt')
 # database = transform_to_data(data)
 # train_data, test_data = train_test_split(database, test_size=0.05)
 
-# min_weight_threshold =150
+# min_weight_threshold =160
+# database = [
+#     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
+#     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
+#     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
+#     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
+# ]
 # frequent_itemsets = wis_algorithm(test_data, min_weight_threshold)
+
 
 # print("Frequent Weighted Itemsets:")
 # for itemset, total_weight in frequent_itemsets:

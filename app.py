@@ -18,17 +18,17 @@ min_confidence = 1
 from sklearn.model_selection import train_test_split
 data = read_data('./data/chess.dat.txt')
 database = transform_to_data(data)
-train_data, test_data = train_test_split(database, test_size=0.2)
+train_data, test_data = train_test_split(database, test_size=0.05)
 
 runtime_WITs = []
 runtime_WIT_DIFFs = []
 runtime_WISs = []
 runtime_WARMs = []
 for i in min_support:
-    runtime_WIT = timeit.timeit('WIT_FWI(test_data, i)', globals=globals(), number=1)
-    runtime_WIT_DIFF = timeit.timeit('WIT_FWI_DIFF(test_data, i)', globals=globals(), number=1)
-    runtime_WIS = timeit.timeit('wis_algorithm(test_data, i)', globals= globals(), number=1)
-    runtime_WARM = timeit.timeit('generate_association_rules(test_data, i, min_confidence)', globals=globals(), number=1)
+    runtime_WIT = timeit.timeit('WIT_FWI(database, i)', globals=globals(), number=1)
+    runtime_WIT_DIFF = timeit.timeit('WIT_FWI_DIFF(database, i)', globals=globals(), number=1)
+    runtime_WIS = timeit.timeit('wis_algorithm(database, i)', globals= globals(), number=1)
+    runtime_WARM = timeit.timeit('generate_association_rules(database, i, min_confidence)', globals=globals(), number=1)
 
     runtime_WITs.append(runtime_WIT)
     runtime_WIT_DIFFs.append(runtime_WIT_DIFF)
@@ -43,7 +43,7 @@ plt.plot(min_support, runtime_WISs, 'yellow', marker='o',label='WIS')
 plt.plot(min_support, runtime_WARMs, 'black', marker='o' ,label='WARM')
 plt.xlabel('min_supports')
 plt.ylabel('Runtimes')
-plt.title('Compare Algorithms')
+plt.title('Compare Algorithms with Chess Data')
 plt.legend()
 plt.show()
 

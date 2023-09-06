@@ -51,15 +51,15 @@ def generate_association_rules(transaction_data, min_support, min_confidence):
 # data = read_data('./data/chess.dat.txt')
 # database = transform_to_data(data)
 # train_data, test_data = train_test_split(database, test_size=0.05)
-# # # Sample transaction data
-# # # transaction_data = [
-# # #     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
-# # #     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
-# # #     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
-# # #     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
-# # # ]
+# # Sample transaction data
+# transaction_data = [
+#     {'Beer': 3, 'Sausage': 2, 'Egg': 1},
+#     {'Beer': 1, 'Durian': 2, 'Yaourt': 2},
+#     {'Beer': 2, 'Durian': 3, 'Yaourt': 2, 'Beef': 1},
+#     {'Durian': 1, 'Yaourt': 2, 'Beef': 2}
+# ]
 
-# min_support = 155
+# min_support =150
 # min_confidence = 1
 
 # filtered_rules = generate_association_rules(test_data, min_support, min_confidence)
